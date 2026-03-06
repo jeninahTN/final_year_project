@@ -1,0 +1,20 @@
+{
+  "name": "Market Pulse",
+  "short_name": "MarketPulse",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8f9fa",
+  "theme_color": "#2ecc71",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/1065/1065609.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/1065/1065609.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

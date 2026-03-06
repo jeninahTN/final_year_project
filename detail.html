@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div style="margin-bottom: 20px;">
+        <a href="/"
+            style="display: inline-flex; align-items: center; gap: 8px; font-weight: 600; color: var(--text-dark); background: #eee; padding: 8px 16px; border-radius: 8px;">
+            <i class="fas fa-arrow-left"></i> <span data-i18n="btn_back">Back</span>
+        </a>
+    </div>
+
+    <h1 style="font-size: 2rem; margin-bottom: 5px;">{{ detail.name }} Price in {{ detail.region }}</h1>
+    <p class="text-success" style="font-size: 0.9rem; margin-bottom: 30px;" data-i18n="last_updated">Last updated:
+        Today, 8:00 AM</p>
+            <canvas id="priceChart"></canvas>
+        </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 30px;">
+        <div>
+            <h3 style="margin-bottom: 20px;" data-i18n="why_price_high">Why the price is high</h3>
+            <div style="display: flex; gap: 15px; margin-bottom: 20px;">
+                <div
+                    style="background: #e8f5e9; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <i class="fas fa-store text-success"></i>
+                </div>
+                <div>
+                    <h4 style="font-size: 1rem;">High Demand</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Increased demand from nearby towns and urban
+                        centers is driving prices up.</p>
+                </div>
+            </div>
+            <div style="display: flex; gap: 15px;">
+                <div
+                    style="background: #e8f5e9; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <i class="fas fa-truck text-success"></i>
+                </div>
+                <div>
+                    <h4 style="font-size: 1rem;">Low Supply</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Fewer farmers are bringing maize to the
+                        market this week, reducing the available supply.</p>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h3 style="margin-bottom: 20px;" data-i18n="future_outlook">Future Outlook</h3>
+            <div class="card"
+                style="border-left: 4px solid var(--primary); display: flex; gap: 15px; align-items: start;">
+                <div
+                    style="background: #e8f5e9; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <i class="fas fa-arrow-down text-success"></i>
+                </div>
+                <div>
+                    <h4 style="font-size: 1rem;">Prices may decrease in 2 weeks</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">As the main harvest season begins, more
+                        supply is expected, which could lead to lower prices.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+        <p style="font-weight: 600; margin-bottom: 10px;" data-i18n="change_language">Change Language:</p>
+        <div style="display: flex; gap: 10px;">
+            <!-- Language buttons removed in favor of global dropdown, but keeping structure if needed -->
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="/static/js/charts.js"></script>
+<script id="history-data" type="application/json">
+    {{ detail.history | tojson | safe }}
+</script>
+<script>
+    // Pass data from Jinja to JS
+    const historyData = JSON.parse(document.getElementById('history-data').textContent);
+    renderPriceChart('priceChart', historyData);
+</script>
+{% endblock %}

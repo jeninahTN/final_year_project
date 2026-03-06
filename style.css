@@ -1,0 +1,169 @@
+/* Market Pulse - Premium Design System */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --primary: #2ecc71;
+    --primary-dark: #27ae60;
+    --secondary: #f1c40f;
+    --accent: #e74c3c;
+    --bg-light: #f8f9fa;
+    --bg-white: #ffffff;
+    --text-dark: #2c3e50;
+    --text-muted: #7f8c8d;
+    --border-radius: 16px;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+    --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-dark);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Layout */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background: var(--bg-white);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-sm);
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-dark);
+}
+
+.logo-icon {
+    color: var(--primary);
+    font-size: 1.8rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-link {
+    font-weight: 500;
+    color: var(--text-dark);
+    transition: var(--transition);
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--primary);
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.lang-switch {
+    background: #eef2f5;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary);
+}
+
+/* Cards */
+.card {
+    background: var(--bg-white);
+    border-radius: var(--border-radius);
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    border: 1px solid rgba(0,0,0,0.02);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Utilities */
+.text-primary { color: var(--primary); }
+.text-success { color: var(--primary); }
+.text-danger { color: var(--accent); }
+.mt-1 { margin-top: 10px; }
+.mt-2 { margin-top: 20px; }
+.mt-4 { margin-top: 40px; }
+.mb-2 { margin-bottom: 20px; }
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Simple hide for now, would add hamburger menu in full prod */
+    }
+}

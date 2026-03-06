@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container" style="max-width: 480px; margin-top: 60px;">
+    <div style="text-align: center; margin-bottom: 40px;">
+        <div
+            style="display: inline-flex; align-items: center; gap: 10px; font-size: 1.8rem; font-weight: 800; color: var(--text-dark); margin-bottom: 10px;">
+            <i class="fas fa-tractor text-success"></i> Market Pulse
+        </div>
+        <p style="color: var(--text-muted);" data-i18n="login_subtitle">Price insights for your farm.</p>
+    </div>
+
+    <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
+        <div style="display: flex; border-bottom: 2px solid #eee; margin-bottom: 30px;">
+            <div style="flex: 1; text-align: center; padding-bottom: 10px; border-bottom: 2px solid var(--primary); font-weight: 600; color: var(--text-dark); cursor: pointer;"
+                data-i18n="tab_signin">Sign In</div>
+            <div style="flex: 1; text-align: center; padding-bottom: 10px; color: var(--text-muted); cursor: pointer;"
+                data-i18n="tab_signup">Create Account</div>
+        </div>
+
+        <form>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; font-weight: 600; margin-bottom: 8px; font-size: 0.9rem;"
+                    data-i18n="label_login_id">Your Name or Phone Number</label>
+                <input type="text" placeholder="e.g. John Doe or 07..."
+                    style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd;"
+                    data-i18n="ph_login_id">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; font-weight: 600; margin-bottom: 8px; font-size: 0.9rem;"
+                    data-i18n="label_password">Password</label>
+                <input type="password" placeholder="Enter your password"
+                    style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd;"
+                    data-i18n="ph_password">
+            </div>
+
+            <div style="text-align: right; margin-bottom: 20px;">
+                <a href="#" style="color: var(--primary); font-size: 0.8rem; font-weight: 600;"
+                    data-i18n="link_forgot">Forgot
+                    Password?</a>
+            </div>
+
+            <button type="button" class="btn-primary"
+                style="width: 100%; justify-content: center; padding: 12px; margin-bottom: 20px;"
+                onclick="window.location.href='/'" data-i18n="btn_signin">Sign In</button>
+
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                <div style="height: 1px; background: #eee; flex: 1;"></div>
+                <div style="color: #aaa; font-size: 0.8rem;">OR</div>
+                <div style="height: 1px; background: #eee; flex: 1;"></div>
+            </div>
+
+            <button type="button"
+                style="width: 100%; padding: 12px; border-radius: 50px; border: 1px solid #ddd; background: white; display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: 600; cursor: pointer;">
+                <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" style="width: 18px;">
+                <span data-i18n="btn_google">Sign
+                    in with Google</span>
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}
